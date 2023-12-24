@@ -15,8 +15,8 @@ class App {
         });
     }
 }
-const myApp = new App();
+const myApp = new App().app;
 const port = 3000;
-myApp.app.listen(port, () => {
+myApp.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
