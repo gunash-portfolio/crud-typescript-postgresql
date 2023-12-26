@@ -10,6 +10,7 @@ class App {
         this.routes();
     }
 
+
     protected routes():void {
         this.app.route("/").get((req:Request,res:Response) =>{
             res.send("Welcome life");
