@@ -21,6 +21,17 @@ export class Note extends Model {
         autoIncrement:true,
         field: Note.NOTE_ID
     })
-    id!: number;
+    id!: number
+
+    @Column ({
+        type: DataType.STRING(100),
+        field: Note.NOTE_NAME
+    }) name!:string
+
+    @Column ({
+        type:DataType.STRING(255),
+        field: Note.NOTE_DESCRIPTION
+    })
+    description!:string
 
 }

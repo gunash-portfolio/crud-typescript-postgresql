@@ -34,6 +34,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_typescript_1 = require("sequelize-typescript");
 const dotenv = __importStar(require("dotenv"));
+const Note_1 = require("../model/Note");
 dotenv.config();
 class Database {
     constructor() {
@@ -53,6 +54,7 @@ class Database {
                 host: this.POSTGRES_HOST,
                 port: this.POSTGRES_PORT,
                 dialect: "postgres",
+                models: [Note_1.Note]
             });
             yield this.sequelize
                 .authenticate()
