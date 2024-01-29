@@ -74,4 +74,28 @@ class NoteController {
             })
         }
     }
+
+    async update(req: Request, res: Response){
+
+
+        try {
+            let id = parseInt(req.params["id"]);
+            const new_note= new Note();
+            new_note.id =id;
+            new_note.name = req.body.name
+            new_note.description = req.body.description;
+
+
+            await new NoteRepo().update(new_note)
+            res.status(200).json({
+                status: "Ok!",
+                message: "Successfully updated note"
+            })
+        } catch (error) {
+            res.status(500).json({
+                status: "Internal server error",
+                message: "Internal server error"
+            })
+        }
+    }
 }
