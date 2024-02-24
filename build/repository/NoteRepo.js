@@ -41,7 +41,7 @@ class NoteRepo {
                 yield new_note.save();
             }
             catch (error) {
-                throw new Error("Failed to update note!");
+                throw new Error("Failed to create note!");
             }
         });
     }
@@ -59,7 +59,7 @@ class NoteRepo {
                 yield new_note.destroy();
             }
             catch (error) {
-                throw new Error("Failed to update note!");
+                throw new Error("Failed to create note!");
             }
         });
     }
@@ -77,7 +77,7 @@ class NoteRepo {
                 return new_note;
             }
             catch (error) {
-                throw new Error("Failed to update note!");
+                throw new Error("Failed to create note!");
             }
         });
     }
@@ -87,7 +87,7 @@ class NoteRepo {
                 return yield Note_1.Note.findAll();
             }
             catch (error) {
-                throw new Error("Failed to update note!");
+                throw new Error("Failed to create note!");
             }
         });
     }

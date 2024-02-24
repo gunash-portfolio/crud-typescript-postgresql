@@ -20,14 +20,14 @@ class NoteController {
                 new_note.description = req.body.description;
                 yield new NoteRepo_1.NoteRepo().save(new_note);
                 res.status(201).json({
-                    status: "Created",
-                    message: "Successfully created note"
+                    status: "Created!",
+                    message: "Successfully created note!",
                 });
             }
-            catch (error) {
+            catch (err) {
                 res.status(500).json({
-                    status: "Internal server error",
-                    message: "Internal server error"
+                    status: "Internal Server Error!",
+                    message: "Internal Server Error!",
                 });
             }
         });
@@ -39,31 +39,13 @@ class NoteController {
                 yield new NoteRepo_1.NoteRepo().delete(id);
                 res.status(200).json({
                     status: "Ok!",
-                    message: "Successfully deleted note"
+                    message: "Successfully deleted note!",
                 });
             }
-            catch (error) {
+            catch (err) {
                 res.status(500).json({
-                    status: "Internal server error",
-                    message: "Internal server error"
-                });
-            }
-        });
-    }
-    findAll(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const new_note = yield new NoteRepo_1.NoteRepo().retrieveAll;
-                res.status(200).json({
-                    status: "Ok!",
-                    message: "Successfully fetched all note data!",
-                    data: new_note
-                });
-            }
-            catch (error) {
-                res.status(500).json({
-                    status: "Internal server error",
-                    message: "Internal server error"
+                    status: "Internal Server Error!",
+                    message: "Internal Server Error!",
                 });
             }
         });
@@ -76,13 +58,31 @@ class NoteController {
                 res.status(200).json({
                     status: "Ok!",
                     message: "Successfully fetched note by id!",
-                    data: new_note
+                    data: new_note,
                 });
             }
-            catch (error) {
+            catch (err) {
                 res.status(500).json({
-                    status: "Internal server error",
-                    message: "Internal server error"
+                    status: "Internal Server Error!",
+                    message: "Internal Server Error!",
+                });
+            }
+        });
+    }
+    findAll(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const new_note = yield new NoteRepo_1.NoteRepo().retrieveAll();
+                res.status(200).json({
+                    status: "Ok!",
+                    message: "Successfully fetched all note data!",
+                    data: new_note,
+                });
+            }
+            catch (err) {
+                res.status(500).json({
+                    status: "Internal Server Error!",
+                    message: "Internal Server Error!",
                 });
             }
         });
@@ -98,16 +98,16 @@ class NoteController {
                 yield new NoteRepo_1.NoteRepo().update(new_note);
                 res.status(200).json({
                     status: "Ok!",
-                    message: "Successfully updated note"
+                    message: "Successfully updated note data!",
                 });
             }
-            catch (error) {
+            catch (err) {
                 res.status(500).json({
-                    status: "Internal server error",
-                    message: "Internal server error"
+                    status: "Internal Server Error!",
+                    message: "Internal Server Error!",
                 });
             }
         });
     }
 }
-exports.default = new NoteController;
+exports.default = new NoteController();

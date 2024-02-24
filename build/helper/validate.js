@@ -11,19 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const validate = (schema) => (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        // Log the contents of req.body
-        console.log("Request Body:", req.body);
-        // Validate the request against the schema
         yield schema.parseAsync({
             body: req.body,
             query: req.query,
             params: req.params,
         });
-        // If validation passes, proceed to the next middleware
         return next();
     }
     catch (err) {
-        // If validation fails, return a 400 Bad Request response with the error message
         const error_message = JSON.parse(err.message);
         return res.status(400).json({
             status: "Bad Request!",

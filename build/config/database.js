@@ -42,7 +42,8 @@ class Database {
         this.POSTGRES_HOST = process.env.POSTGRES_HOST;
         this.POSTGRES_PORT = process.env.POSTGRES_PORT;
         this.POSTGRES_USER = process.env.POSTGRES_USER;
-        this.POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD;
+        this.POSTGRES_PASSWORD = process.env
+            .POSTGRES_PASSWORD;
         this.connectToPostgreSQL();
     }
     connectToPostgreSQL() {
@@ -59,9 +60,10 @@ class Database {
             yield this.sequelize
                 .authenticate()
                 .then(() => {
-                console.log("Connected Database");
-            }).catch((err) => {
-                console.log("Not connected Database", err);
+                console.log("✅ PostgreSQL Connection has been established successfully.");
+            })
+                .catch((err) => {
+                console.error("❌ Unable to connect to the PostgreSQL database:", err);
             });
         });
     }
