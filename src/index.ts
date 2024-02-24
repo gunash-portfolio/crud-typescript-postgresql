@@ -1,6 +1,7 @@
 import express, { Application,Request,Response } from "express";
 import { send } from "process";
 import Database from "./config/database";
+import NoteRouter from "./router/NoteRouter";
 
 class App {
 
@@ -10,6 +11,11 @@ class App {
         this.app = express();
         this.databasesync();
         this.routes();
+    }
+
+    protected plugins():void{
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({extended:true}))
     }
 
     protected databasesync():void{
@@ -23,6 +29,7 @@ class App {
         }
 
         );
+        this.app.use("/api/v1/note",NoteRouter)
     }
 }
 
