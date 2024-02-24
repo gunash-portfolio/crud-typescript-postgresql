@@ -110,3 +110,4 @@ class NoteController {
         });
     }
 }
+exports.default = new NoteController;

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Note } from "../model/Note";
 import { NoteRepo } from "../repository/NoteRepo";
+import exp from "constants";
 
 class NoteController {
 
@@ -99,3 +100,5 @@ class NoteController {
         }
     }
 }
+
+export default new NoteController;
